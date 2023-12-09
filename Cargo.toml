@@ -8,3 +8,7 @@ edition = "2021"
 [dependencies]
 critical-section = "1.1.2"
 embedded-hal = "1.0.0-rc.1"
+
+[dev-dependencies]
+critical-section = { version = "1.1.2", features = ["std"] }
+linux-embedded-hal = { git = "https://github.com/rust-embedded/linux-embedded-hal.git", rev = "c9b9809d6bd0c2e911da028db6d96070724a6565", version = "0.4.0-alpha.3" }
