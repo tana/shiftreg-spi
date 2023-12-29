@@ -1,5 +1,6 @@
 # SPI-based driver for shift registers
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/tana/shiftreg-spi/rust.yml)
+![docs.rs](https://img.shields.io/docsrs/shiftreg-spi)
 
 This is an embedded Rust driver for shift registers (such as 74HC595).
 

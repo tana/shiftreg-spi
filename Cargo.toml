@@ -2,6 +2,15 @@
 name = "shiftreg-spi"
 version = "0.1.0"
 edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "SPI-based driver for shift registers such as 74HC595 with embedded-hal API"
+homepage = "https://crates.io/crates/shiftreg-spi"
+documentation = "https://docs.rs/shiftreg-spi"
+repository = "https://github.com/tana/shiftreg-spi"
+readme = "README.md"
+keywords = ["embedded-hal-driver", "spi", "shift-register", "74hc595"]
+categories = ["embedded", "no-std", "hardware-support"]
+exclude = [".github"]
 
 [dependencies]
 critical-section = "1.1.2"
