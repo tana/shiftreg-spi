@@ -3,12 +3,10 @@ name = "shiftreg-spi"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 critical-section = "1.1.2"
-embedded-hal = "1.0.0-rc.1"
+embedded-hal = "1.0.0-rc.3"
 
 [dev-dependencies]
 critical-section = { version = "1.1.2", features = ["std"] }
-linux-embedded-hal = { git = "https://github.com/rust-embedded/linux-embedded-hal.git", rev = "c9b9809d6bd0c2e911da028db6d96070724a6565", version = "0.4.0-alpha.3" }
+linux-embedded-hal = { git = "https://github.com/rust-embedded/linux-embedded-hal.git", rev = "a1fb24103e575615a29c6748cdeff1f0e7a3dae3" }
