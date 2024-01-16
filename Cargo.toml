@@ -14,7 +14,7 @@ exclude = [".github"]
 
 [dependencies]
 critical-section = "1.1.2"
-embedded-hal = "1.0.0-rc.3"
+embedded-hal = "1.0.0-rc.1"
 
 [dev-dependencies]
 critical-section = { version = "1.1.2", features = ["std"] }
