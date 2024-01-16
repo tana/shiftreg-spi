@@ -21,6 +21,7 @@ where
         Self(Mutex::new(RefCell::new(SipoShiftRegInner {
             spi,
             state: [0; BYTES],
+            lazy: false,
         })))
     }
 
@@ -30,11 +31,20 @@ where
             idx: i,
         })
     }
+
+    pub fn set_lazy(&self, lazy: bool) {
+        critical_section::with(|cs| self.0.borrow_ref_mut(cs).lazy = lazy)
+    }
+
+    pub fn update(&self) -> Result<(), ShiftRegError<Spi::Error>> {
+        critical_section::with(|cs| self.0.borrow_ref_mut(cs).update())
+    }
 }
 
 struct SipoShiftRegInner<Spi, const BITS: usize, const BYTES: usize> {
     spi: Spi,
     state: [u8; BYTES],
+    lazy: bool,
 }
 
 impl<Spi, const BITS: usize, const BYTES: usize> SipoShiftRegInner<Spi, BITS, BYTES>
@@ -54,7 +64,11 @@ where
             PinState::Low => self.state[byte_idx] &= !(1 << bit_idx),
         };
 
-        self.update()
+        if !self.lazy {
+            self.update()?;
+        }
+
+        Ok(())
     }
 
     fn update(&mut self) -> Result<(), ShiftRegError<Spi::Error>> {
